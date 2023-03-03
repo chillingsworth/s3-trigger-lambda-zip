@@ -4,16 +4,22 @@
         {
             "Effect": "Allow",
             "Action": [
-                "s3:Get*"
+                "s3:*"
             ],
-            "Resource": "arn:aws:s3:::<bucket-name>/*"
+            "Resource": [
+                "arn:aws:s3:::<bucke-name>",
+                "arn:aws:s3:::<bucke-name>/*"
+            ]
         },
         {
             "Effect": "Allow",
             "Action": [
-                "s3:Put*"
+                "s3:*"
             ],
-            "Resource": "arn:aws:s3:::<bucket-name>/*"
+            "Resource": [
+                "arn:aws:s3:::<bucke-name>",
+                "arn:aws:s3:::<bucke-name>/*"
+            ]
         }
     ]
 }
