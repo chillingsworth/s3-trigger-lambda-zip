@@ -35,22 +35,13 @@ def lambda_handler(event, context):
         if "/" in key:
 
             remoteDirectoryName = key.split("/")[0].replace("+"," ")
-
             writeBucketName="ross-test-write-bucket"
-            
             downloadDirectoryFroms3(readBucketName, remoteDirectoryName)
-            
-            
             zipfolder(filepath + remoteDirectoryName, filepath + remoteDirectoryName)
-            
-            
             shutil.rmtree(filepath+remoteDirectoryName)
-            
             zipfilename = remoteDirectoryName+'.zip'
-            
             s3.meta.client.upload_file(filepath+zipfilename, writeBucketName, zipfilename)
             
-        return response['ContentType']
     except Exception as e:
         print(e)
         raise e
